@@ -1,0 +1,36 @@
+{ "name": "sockaddrstr",
+  "version": "0.1.0",
+  "description": "Guess an address string for a net.Socket or net.Server.",
+  "keywords": [
+    "address",
+    "host",
+    "ip",
+    "net",
+    "port",
+    "server",
+    "socket",
+    "string"
+  ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/sockaddrstr-js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/sockaddrstr-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/sockaddrstr-js/issues"
+  },
+
+  "private": false, "license": "ISC",
+
+  "main": "sas.js",
+  "scripts": { "test": "nodejs test/usage.js" },
+  "directories": { "test": "test" },
+
+  "dependencies": {},
+  "devDependencies": { "equal-pmb": "^0.1.0" },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
