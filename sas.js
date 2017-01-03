@@ -3,7 +3,7 @@
 'use strict';
 
 module.exports = (function setup() {
-  function addressObjToPair(addr, pfx) {
+  var EX = function addressObjToPair(addr, pfx) {
     if ((addr && typeof addr) !== 'object') { return null; }
     var host = addr.address, fam, port;
     if ((!addr.remoteFamily) && (typeof host === 'function')) {
@@ -31,6 +31,10 @@ module.exports = (function setup() {
   }
 
 
+  EX.toString = function () {
+    return (this === EX ? '[function addressObjToPair]' : EX(this));
+  };
 
-  return addressObjToPair;
+
+  return EX;
 }());

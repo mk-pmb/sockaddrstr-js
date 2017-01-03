@@ -20,6 +20,10 @@
   stub = { address: getServerAddr, remoteFamily: 'IPv4',
     remoteAddress: '192.168.0.1', remotePort: 34567 };
   equal(addrStr(stub), '192.168.0.1:34567');
+
+  equal(String(stub), '[object Object]');
+  stub.toString = addrStr.toString;
+  equal(String(stub), '192.168.0.1:34567');
   //#r
 }());
 
