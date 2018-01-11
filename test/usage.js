@@ -19,11 +19,17 @@
   // guess from a socket-like object
   stub = { address: getServerAddr, remoteFamily: 'IPv4',
     remoteAddress: '192.168.0.1', remotePort: 34567 };
-  equal(addrStr(stub), '192.168.0.1:34567');
+  // remote address is considered more interesting by default:
+  equal(addrStr(stub),            '192.168.0.1:34567');
+  equal(addrStr(stub, 'remote'),  '192.168.0.1:34567');
+  // but you can give an empty prefix string to opt-out:
+  equal(addrStr(stub, ''),        '0.0.0.0:8020');
 
   equal(String(stub), '[object Object]');
   stub.toString = addrStr.toString;
-  equal(String(stub), '192.168.0.1:34567');
+  equal(addrStr(stub),            '192.168.0.1:34567');
+  equal(addrStr(stub, 'remote'),  '192.168.0.1:34567');
+  equal(addrStr(stub, ''),        '0.0.0.0:8020');
   //#r
 }());
 

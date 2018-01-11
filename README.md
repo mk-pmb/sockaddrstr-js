@@ -15,7 +15,7 @@ see [test/usage.js](test/usage.js)
 
 <!--#include file="test/usage.js" start="  //#u" stop="  //#r"
   outdent="  " code="javascript" -->
-<!--#verbatim lncnt="22" -->
+<!--#verbatim lncnt="24" -->
 ```javascript
 var addrStr = require('sockaddrstr'), equal = require('equal-pmb'), stub,
   serverAddr = { family: 'IPv4', address: '0.0.0.0', port: 8020 };
@@ -32,11 +32,13 @@ equal(addrStr(stub), '0.0.0.0:8020');
 // guess from a socket-like object
 stub = { address: getServerAddr, remoteFamily: 'IPv4',
   remoteAddress: '192.168.0.1', remotePort: 34567 };
-equal(addrStr(stub), '192.168.0.1:34567');
+equal(addrStr(stub), '0.0.0.0:8020');
+equal(addrStr(stub, 'remote'), '192.168.0.1:34567');
 
 equal(String(stub), '[object Object]');
 stub.toString = addrStr.toString;
-equal(String(stub), '192.168.0.1:34567');
+equal(addrStr(stub), '0.0.0.0:8020');
+equal(addrStr(stub, 'remote'), '192.168.0.1:34567');
 ```
 <!--/include-->
 

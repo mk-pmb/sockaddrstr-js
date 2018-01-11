@@ -1,5 +1,5 @@
 { "name": "sockaddrstr",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Guess an address string for a net.Socket or net.Server.",
   "keywords": [
     "address",
